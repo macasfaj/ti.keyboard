@@ -85,11 +85,13 @@ def compile_js(manifest,config):
 
 	root_asset_content = """
 %s
+
 	return filterDataInRange([NSData dataWithBytesNoCopy:data length:sizeof(data) freeWhenDone:NO], ranges[0]);
 """ % root_asset
 
 	module_asset_content = """
 %s
+
 	NSNumber *index = [map objectForKey:path];
 	if (index == nil) {
 		return nil;
@@ -260,7 +262,7 @@ if __name__ == '__main__':
 	print "**************************************************************"
 	print "  WARNING!"
 	print "    This Python script is deprecated!"
-	print "    Please use 'ti build -p ios --build-only' instead"
+	print "    Please use 'appc run -p ios --build-only' instead"
 	print "**************************************************************"
 	print ""
 

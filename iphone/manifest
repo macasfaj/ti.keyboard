@@ -5,14 +5,14 @@
 version: 2.0.0
 apiversion: 2
 architectures: armv7 arm64 i386 x86_64
-description: keyboard
-author: Manoj Kumar
+description: ti.keyboard
+author: Clément Blanco
 license: MIT
-copyright: Copyright (c) 2017 by Manoj Kumar
+copyright: Copyright (c) 2018 by Cyber-Duck Ltd
 
 # these should not be edited
-name: keyboard
+name: ti.keyboard
 moduleid: ti.keyboard
-guid: 6c9ebd9f-1bcc-438b-a1aa-16ad2d23a7a9
+guid: 21d70b8f-7c00-49ae-a330-3275f82bfeee
 platform: iphone
 minsdk: 6.2.2.GA
