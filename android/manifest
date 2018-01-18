@@ -7,8 +7,8 @@ apiversion: 3
 architectures: armeabi-v7a x86
 description: keyboard
 author: Manoj Kumar
-license: Forget about it
-copyright: Copyright (c) 2015
+license: MIT
+copyright: Copyright (c) 2017 by Manoj Kumar
 
 # these should not be edited
 name: keyboard

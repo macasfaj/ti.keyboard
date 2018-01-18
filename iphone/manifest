@@ -3,12 +3,12 @@
 # during compilation, packaging, distribution, etc.
 #
 version: 2.0.0
-apiversion: 3
+apiversion: 2
 architectures: armv7 arm64 i386 x86_64
 description: keyboard
 author: Manoj Kumar
-license: Forget about it
-copyright: Copyright (c) 2015
+license: MIT
+copyright: Copyright (c) 2017 by Manoj Kumar
 
 # these should not be edited
 name: keyboard

@@ -85,13 +85,11 @@ def compile_js(manifest,config):
 
 	root_asset_content = """
 %s
-
 	return filterDataInRange([NSData dataWithBytesNoCopy:data length:sizeof(data) freeWhenDone:NO], ranges[0]);
 """ % root_asset
 
 	module_asset_content = """
 %s
-
 	NSNumber *index = [map objectForKey:path];
 	if (index == nil) {
 		return nil;
@@ -116,6 +114,9 @@ def die(msg):
 
 def warn(msg):
 	print "[WARN] %s" % msg
+
+def error(msg):
+	print "[ERROR] %s" % msg
 
 def validate_license():
 	license_file = os.path.join(cwd,'LICENSE')
@@ -197,14 +198,19 @@ def verify_build_arch(manifest, config):
 
 	builtarch = set(output.split(':')[-1].strip().split(' '))
 
+	print 'Check build architectures\n'
+
 	if ('arm64' not in builtarch):
 		warn('built module is missing 64-bit support.')
 
 	if (manifestarch != builtarch):
-		warn('there is discrepancy between the architectures specified in module manifest and compiled binary.')
 		warn('architectures in manifest: %s' % ', '.join(manifestarch))
 		warn('compiled binary architectures: %s' % ', '.join(builtarch))
-		die('please update manifest to match module binary architectures.')
+
+		print '\nMODULE BUILD FAILED'
+		error('there is discrepancy between the architectures specified in module manifest and compiled binary.')
+		error('Please update manifest to match module binary architectures.')
+		die('')
 
 def package_module(manifest,mf,config):
 	name = manifest['name'].lower()
@@ -251,6 +257,13 @@ def package_module(manifest,mf,config):
 
 
 if __name__ == '__main__':
+	print "**************************************************************"
+	print "  WARNING!"
+	print "    This Python script is deprecated!"
+	print "    Please use 'ti build -p ios --build-only' instead"
+	print "**************************************************************"
+	print ""
+
 	manifest,mf = validate_manifest()
 	validate_license()
 	config = read_ti_xcconfig()

@@ -68,11 +68,7 @@
 
 -(id)hide:(id)args
 {
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-        UIView *topView = window.rootViewController.view;
-        [topView endEditing:YES];
-    });
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
 @end
