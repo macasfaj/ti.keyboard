@@ -38,7 +38,7 @@
 
 #pragma Public APIs
 
-- (id)hide:(id)args
+- (void)hide:(id)args
 {
     [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
